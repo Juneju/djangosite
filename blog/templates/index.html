@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load custom_markdown %}
+
+{% block content %}
+<div class="blog-post">
+    {% for post in post_list %}
+                <h2 class="blog-post-title"><a style=" text-decoration: none; color: #444;font-family:Helvetica;font-weight:bold;" href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+
+                    <p class="blog-post-meta">
+                        Time:  <a  href="#">{{ post.date_time |date:"Y /m /d"}}</a> <a  class="label label-default " href="#">{{ post.category }}</a>
+                    </p>
+
+                    <p>
+                        {{ post.content |custom_markdown|truncatewords_html:40 }}
+                    </p>
+                <a class="label label-info" href="{% url "detail" id=post.id %}">Read More >>></a>
+                <br><hr><br>
+        </section>
+    {% endfor %}  
+    
+    {% if post_list.object_list and post_list.paginator.num_pages > 1 %}
+    	<div>
+    		<ul class="pager">
+    			{% if post_list.has_previous %}
+    				<li><a href="?page={{ post_list.previous_page_number }}">previous page</a></li>
+    			{% endif %}
+    			{% if post_list.has_next %}
+    				<li><a href="?page={{ post_list.next_page_number }}">next page</a></li>
+    			{% endif %}
+    		</ul>
+    	</div>
+    {% endif %}
+</div><!-- /.blog-post -->
+{% endblock %}
+

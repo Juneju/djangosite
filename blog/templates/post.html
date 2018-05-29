@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load custom_markdown %}
+
+{% block content %}
+<div class="posts">
+			<h2 class="blog-post-title">{{ post.title }}</h2>
+			<p class="blog-post-meta">
+				Time:<a href="#">{{ post.date_time|date:"Y/m/d"}}</a>
+				<a href="#">{{ post.category }}</a>
+			</p>	
+		<div >
+			<p>
+				{{ post.content|custom_markdown }}
+			</p>
+		</div>
+</div><!-- /.blog-post -->
+{% endblock %}

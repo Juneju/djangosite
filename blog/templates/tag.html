@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load custom_markdown %}
+{% block content %}
+<div class="posts">
+    {% for post in post_list %}
+                <h2 class="blog-post-title"><a href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+
+                    <p class="blog-post-meta">
+                        Time:  <a  href="#">{{ post.date_time |date:"Y M d"}}</a> <a class="post-category post-category-js" href="{% url "search_tag" tag=post.category %}">{{ post.category|title }}</a>
+                    </p>
+            </header>
+
+                <div >
+                    <p>
+                        {{ post.content|custom_markdown }}
+                    </p>
+                </div>
+                <a class="btn btn-xs btn-warning" href="{% url "detail" id=post.id %}">Read More >>> </a>
+        </section>
+    {% endfor %}
+</div><!-- /.blog-post -->
+{% endblock %}
