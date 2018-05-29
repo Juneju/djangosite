@@ -3,13 +3,13 @@
 
 {% block content %}
 <div class="posts">
-			<h2 class="blog-post-title">{{ post.title }}</h2>
+			<h2 class="blog-post-title" style=" text-decoration: none; color: #000;font-family:Helvetica;font-weight:bold;">{{ post.title }}</h2>
 			<p class="blog-post-meta">
 				Time:<a href="#">{{ post.date_time|date:"Y/m/d"}}</a>
 				<a href="#">{{ post.category }}</a>
 			</p>	
-		<div >
-			<p>
+		<div style="color:#000;font-family:Helvetica;">
+			<p style=" text-decoration: none; color: #000;font-family:Helvetica;">
 				{{ post.content|custom_markdown }}
 			</p>
 		</div>

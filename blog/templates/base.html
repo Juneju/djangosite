@@ -69,23 +69,21 @@
         
 		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Hi,this is June, a college student major in CS.  </p>
+            <h4 style="text-decoration: none;color:#fd704a;font-family:yahei;font-weight:bold;">About</h4>
+            <p style="text-decoration: none;color:#af8f80;font-family:yahei;">Hi,this is June, a college student major in CS.  </p>
           </div>
-          <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-            {% for post in post_list %}
-					<li ><a style=" text-decoration: none; color: #444;" href="{% url "detail" id=post.id %}">{{ post.title }}</a></li>
+          <div class="sidebar-module sidebar-module-inset">
+            <h4 style="text-decoration: none;color:#fd704a;font-family:yahei;font-weight:bold;">Archives</h4>
+            <ul class="list-unstyled">
+            {% for post in posts %}
+					<li ><a style="text-decoration: none;color:#af8f80;font-family:yahei;" href="{% url "detail" id=post.id %}">{{ post.title }}</a></li>
 			{% endfor %}
-            </ol>
+            </ul>
           </div>
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
+          <div class="sidebar-module sidebar-module-inset">
+            <h4 style="text-decoration: none;color:#fd704a;font-family:yahei;font-weight:bold;">Elsewhere</h4>
             <ol class="list-unstyled">
-              <li><a href="https://github.com/Juneju">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
+              <li><a style="text-decoration: none;color:#af8f80;font-family:yahei;" href="https://github.com/Juneju">GitHub</a></li>
             </ol>
           </div>
           </div><!-- /.blog-sidebar -->
@@ -102,7 +100,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{% static "js/jquery.min.js" %}"><\/script>')</script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

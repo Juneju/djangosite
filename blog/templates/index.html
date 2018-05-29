@@ -4,17 +4,18 @@
 {% block content %}
 <div class="blog-post">
     {% for post in post_list %}
-                <h2 class="blog-post-title"><a style=" text-decoration: none; color: #444;font-family:Helvetica;font-weight:bold;" href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+                <h2 class="blog-post-title"><a style=" text-decoration: none; color: #000;font-family:Helvetica;font-weight:bold;" href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
 
                     <p class="blog-post-meta">
                         Time:  <a  href="#">{{ post.date_time |date:"Y /m /d"}}</a> <a  class="label label-default " href="#">{{ post.category }}</a>
                     </p>
-
-                    <p>
+					<div style="color:#000;font-family:Helvetica;">
+                    <p >
                         {{ post.content |custom_markdown|truncatewords_html:40 }}
                     </p>
+                    </div>
                 <a class="label label-info" href="{% url "detail" id=post.id %}">Read More >>></a>
-                <br><hr><br>
+                <br><hr style="border-top:1px solid #d3b696;" ><br>
         </section>
     {% endfor %}  
     
